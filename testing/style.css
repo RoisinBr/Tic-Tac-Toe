@@ -1,9 +1,13 @@
 * {
     box-sizing: border-box
 }
+h1 {
+    text-align: center;
+}
 
 section {
     display: flex;
+    justify-content: center;
 }
 
 section div {
@@ -19,4 +23,16 @@ section div {
 
 .player-2 {
     background-color: blue
+}
+
+footer {
+    text-align: center;
+}
+
+.reset {
+    background-color: transparent;
+}
+
+button {
+    text-align: center;
 }
