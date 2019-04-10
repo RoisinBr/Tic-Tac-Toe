@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box
+}
+
+section {
+    display: flex;
+}
+
+section div {
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+
+}
+
+.player-1 {
+    background-color: purple;
+}
+
+.player-2 {
+    background-color: blue
+}
