@@ -5,6 +5,10 @@ h1 {
     text-align: center;
 }
 
+header p {
+    text-align: center;
+}
+
 section {
     display: flex;
     justify-content: center;
@@ -14,7 +18,9 @@ section div {
     border: 2px solid black;
     width: 100px;
     height: 100px;
-
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 80px;
+    text-align: center;
 }
 
 .player-1 {
