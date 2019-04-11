@@ -94,10 +94,10 @@ newGameButton.addEventListener('click', handleNewGameClick);
 // Transfer to working docs without all the mess /
 // get working for playone and playertwo /
 // I need it to stop when there is a winner. /
-// I need to change that to images 
-// Design layout.
+// I need to change that to images - do at a later date I think
+// Design layout. //
 // Run through all the names and readability.
-// Deploy your game online, where the rest of the world can access it??
+// Deploy your game online, where the rest of the world can access it /
 // A link to your hosted working game in the URL section of your GitHub repo ??
 // A ``readme.md`` file with explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.
 // Presentation on Friday 2:45
