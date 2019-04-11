@@ -8,28 +8,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class='everything'></div>
+    <div class='everything'>
     <header>
         <h1>Tic Tac Toe</h1>
-        <p>Player 1 Score: <span class='player-1-score'>0</span></p>
-        <p>Player 2 Score: <span class='player-2-score'>0</span></p>
+        <section>
+            <p><span class='player-identifier'>X</span> Score: <span class='player-1-score'>0</span></p>
+            <p><span class='player-identifier'>O</span> Score: <span class='player-2-score'>0</span></p>
+        </section>  
     </header>
 
     <main>
         <section>
-            <div class="game-square" id='1'></div>
-            <div class="game-square" id='2'></div>
-            <div class="game-square" id='3'></div>
+            <div class="game-square odd" data-id='1'></div>
+            <div class="game-square even" data-id='2'></div>
+            <div class="game-square odd" data-id='3'></div>
         </section>
         <section>
-            <div class="game-square" id='4'></div>
-            <div class="game-square" id='5'></div>
-            <div class="game-square" id='6'></div>
+            <div class="game-square even" data-id='4'></div>
+            <div class="game-square odd" data-id='5'></div>
+            <div class="game-square even" data-id='6'></div>
         </section>
         <section>
-            <div class="game-square" id='7'></div>
-            <div class="game-square" id='8'></div>
-            <div class="game-square" id='9'></div>
+            <div class="game-square odd" data-id='7'></div>
+            <div class="game-square even" data-id='8'></div>
+            <div class="game-square odd" data-id='9'></div>
         </section>
     </main>
 
@@ -40,5 +42,6 @@
     
 
     <script src='tictactoe.js'></script>
+    </div>
 </body>
 </html>

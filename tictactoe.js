@@ -23,13 +23,13 @@ var winningCombinations = [
 var handleSquareClick = function(event) {
     clickCounter++
     if (clickCounter % 2 === 0) {
-        event.target.textContent = 'O'
-        playerTwo.push(Number(event.target.id))
-        event.target.removeEventListener('click', handleSquareClick)
+        event.target.textContent = 'O';
+        playerTwo.push(Number(event.target.dataset.id));
+        event.target.removeEventListener('click', handleSquareClick);
     } else {
-        event.target.textContent = 'X'
-        playerOne.push(Number(event.target.id))
-        event.target.removeEventListener('click', handleSquareClick)
+        event.target.textContent = 'X';
+        playerOne.push(Number(event.target.dataset.id));
+        event.target.removeEventListener('click', handleSquareClick);
 }
     winningCombinations.forEach(function(combination) {
         determineWinner(combination);
@@ -40,21 +40,36 @@ var determineWinner = function(combination) {
     if (playerOne.includes(combination[0]) &&      
         playerOne.includes(combination[1]) &&      
         playerOne.includes(combination[2])) {
-            winnerDisplay.textContent = 'WINNER';
+            winnerDisplay.textContent = 'X IS THE WINNER';
             playerOneCounter++;
             gameSquare.forEach(function(square) {
-                square.removeEventListener('click', handleSquareClick);
+                for (i=0; i<combination.length; i++) {
+                if (Number(square.dataset.id) === combination[i]) {
+                    square.style.backgroundColor = 'lightGreen'
+                    square.removeEventListener('click', handleSquareClick);
+                } else {
+                    square.removeEventListener('click', handleSquareClick);
+                }
+            }
             playerOneScore.textContent = playerOneCounter
+
         })
     }
     if (playerTwo.includes(combination[0]) &&      
         playerTwo.includes(combination[1]) &&      
         playerTwo.includes(combination[2])) {
-            winnerDisplay.textContent = 'WINNER'
+            winnerDisplay.textContent = 'O IS THE WINNER'
             playerTwoCounter++;
             gameSquare.forEach(function(square) {
-                square.removeEventListener('click', handleSquareClick)
+                for (i=0; i<combination.length; i++) {
+                    if (Number(square.dataset.id) === combination[i]) {
+                        square.style.backgroundColor = 'lightGreen'
+                        square.removeEventListener('click', handleSquareClick);
+                    } else {
+                        square.removeEventListener('click', handleSquareClick);
+                    }
             playerTwoScore.textContent = playerTwoCounter
+                }
     })
     }
 }
@@ -63,10 +78,12 @@ var handleNewGameClick = function () {
     gameSquare.forEach(function(square) {
         square.textContent = ' ';
         square.addEventListener('click', handleSquareClick);
+        square.style = '.odd';
     })
     winnerDisplay.textContent = ' ';
     playerOne = [];    
     playerTwo = [];
+    clickCounter = 0;
 }
 
 gameSquare.forEach(function(square) {

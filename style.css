@@ -1,12 +1,40 @@
 * {
     box-sizing: border-box
 }
+
+.everything {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 h1 {
     text-align: center;
+    font-size: 3em;
+    margin-bottom: 0;
+    margin-left: 33%;
+    margin-right: 33%;
+    border-radius: 10px;
+    color: white;
+    background-color: plum;
+    
+}
+
+.player-identifier {
+    font-size: 80px;
+    text-align: center;
+}
+
+.odd {
+    background-color: lightseagreen;
 }
 
 header p {
     text-align: center;
+    width: 100px;
+}
+
+header section {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 section {
@@ -18,27 +46,31 @@ section div {
     border: 2px solid black;
     width: 100px;
     height: 100px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 80px;
     text-align: center;
-}
-
-.player-1 {
-    background-color: purple;
-}
-
-.player-2 {
-    background-color: blue
+    border-radius: 10px;
 }
 
 footer {
     text-align: center;
 }
+      
+footer h2 {
 
-.reset {
-    background-color: transparent;
-}
+        -webkit-animation-name: flash;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+      }
 
 button {
     text-align: center;
+    background-color:plum;
+    border-radius: 10px;
+    font-size: 1.5em;
+    color: white;
 }
+
+@-webkit-keyframes flash {
+    from {color: lightseagreen;}
+    to {color: lightgreen;}
+  }
