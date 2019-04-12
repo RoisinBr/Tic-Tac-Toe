@@ -7,6 +7,8 @@ var playerTwoScore = document.querySelector('.player-2-score')
 var playerTurnCounter = 0;
 var playerOneScoreCounter = 0;
 var playerTwoScoreCounter = 0;
+var playerOneOutcome
+var playerTwoOutcome
 var playerOneTurns = [];
 var playerTwoTurns = [];
 var winningCombinations = [
@@ -44,18 +46,19 @@ var determineWinner = function(winningCombination) {
             winnerDisplay.textContent = 'X IS THE WINNER';
             playerOneScoreCounter++;
             playerOneScore.textContent = playerOneScoreCounter;
-            highlightWinner(winningCombination);      
-    }
-    if (playerTwoTurns.includes(winningCombination[0]) &&      
+            highlightWinner(winningCombination);     
+    } else if (playerTwoTurns.includes(winningCombination[0]) &&      
         playerTwoTurns.includes(winningCombination[1]) &&      
         playerTwoTurns.includes(winningCombination[2])) {
             winnerDisplay.textContent = 'O IS THE WINNER';
             playerTwoScoreCounter++;
             playerTwoScore.textContent = playerTwoScoreCounter;
             highlightWinner(winningCombination);
+    } else if (playerTurnCounter === 9) {
+            winnerDisplay.textContent = "IT'S A DRAW";
     }
 }
-
+    
 var highlightWinner = function (winningCombination) {
     gameSquare.forEach(function(square) {
         var squareId = Number(square.dataset.id);
