@@ -1,4 +1,3 @@
-console.log('tree')
 var gameSquare = document.querySelectorAll('.game-square')
 var newGameButton = document.querySelector('.new-game-btn')
 var winnerDisplay = document.querySelector('.winner-display')
