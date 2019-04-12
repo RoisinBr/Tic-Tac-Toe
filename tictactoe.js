@@ -89,7 +89,3 @@ gameSquare.forEach(function(square) {
     square.addEventListener('click', handleSquareClick);
 })
 newGameButton.addEventListener('click', handleNewGameButtonClick);
-
-// A link to your hosted working game in the URL section of your GitHub repo ??
-// A ``readme.md`` file with explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.
-// Presentation on Friday 2:45
