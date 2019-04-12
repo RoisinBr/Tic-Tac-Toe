@@ -1,3 +1,4 @@
+console.log('tree')
 var gameSquare = document.querySelectorAll('.game-square')
 var newGameButton = document.querySelector('.new-game-btn')
 var winnerDisplay = document.querySelector('.winner-display')
@@ -63,7 +64,6 @@ var highlightWinner = function (winningCombination) {
         for (i=0; i<winningCombination.length; i++) {
             if (squareId === winningCombination[i]) {
                 square.style.backgroundColor = 'lightGreen';
-                square.removeEventListener('click', handleSquareClick);
             } else {
                 square.removeEventListener('click', handleSquareClick);
             }
