@@ -7,8 +7,6 @@ var playerTwoScore = document.querySelector('.player-2-score')
 var playerTurnCounter = 0;
 var playerOneScoreCounter = 0;
 var playerTwoScoreCounter = 0;
-var playerOneOutcome
-var playerTwoOutcome
 var playerOneTurns = [];
 var playerTwoTurns = [];
 var winningCombinations = [
