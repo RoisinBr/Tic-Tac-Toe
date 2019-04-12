@@ -4,11 +4,11 @@ var winnerDisplay = document.querySelector('.winner-display')
 var playerOneScore = document.querySelector('.player-1-score')
 var playerTwoScore = document.querySelector('.player-2-score')
 
-var clickCounter = 0;
-var playerOneCounter = 0;
-var playerTwoCounter = 0;
-var playerOne = [];
-var playerTwo = [];
+var playerTurnCounter = 0;
+var playerOneScoreCounter = 0;
+var playerTwoScoreCounter = 0;
+var playerOneTurns = [];
+var playerTwoTurns = [];
 var winningCombinations = [
     [1, 2, 3],
     [4, 5, 6],
@@ -21,83 +21,72 @@ var winningCombinations = [
 ]
 
 var handleSquareClick = function(event) {
-    clickCounter++
-    if (clickCounter % 2 === 0) {
+    playerTurnCounter++;
+    var eventId = Number(event.target.dataset.id);
+    if (playerTurnCounter % 2 === 0) {
         event.target.textContent = 'O';
-        playerTwo.push(Number(event.target.dataset.id));
+        playerTwoTurns.push(eventId);
         event.target.removeEventListener('click', handleSquareClick);
     } else {
         event.target.textContent = 'X';
-        playerOne.push(Number(event.target.dataset.id));
+        playerOneTurns.push(eventId);
         event.target.removeEventListener('click', handleSquareClick);
-}
-    winningCombinations.forEach(function(combination) {
-        determineWinner(combination);
+    }
+    winningCombinations.forEach(function(winningCombination) {
+        determineWinner(winningCombination);
     })
 }
 
-var determineWinner = function(combination) {
-    if (playerOne.includes(combination[0]) &&      
-        playerOne.includes(combination[1]) &&      
-        playerOne.includes(combination[2])) {
+var determineWinner = function(winningCombination) {
+    if (playerOneTurns.includes(winningCombination[0]) &&      
+        playerOneTurns.includes(winningCombination[1]) &&      
+        playerOneTurns.includes(winningCombination[2])) {
             winnerDisplay.textContent = 'X IS THE WINNER';
-            playerOneCounter++;
-            gameSquare.forEach(function(square) {
-                for (i=0; i<combination.length; i++) {
-                if (Number(square.dataset.id) === combination[i]) {
-                    square.style.backgroundColor = 'lightGreen'
-                    square.removeEventListener('click', handleSquareClick);
-                } else {
-                    square.removeEventListener('click', handleSquareClick);
-                }
-            }
-            playerOneScore.textContent = playerOneCounter
-
-        })
+            playerOneScoreCounter++;
+            playerOneScore.textContent = playerOneScoreCounter;
+            highlightWinner(winningCombination);      
     }
-    if (playerTwo.includes(combination[0]) &&      
-        playerTwo.includes(combination[1]) &&      
-        playerTwo.includes(combination[2])) {
-            winnerDisplay.textContent = 'O IS THE WINNER'
-            playerTwoCounter++;
-            gameSquare.forEach(function(square) {
-                for (i=0; i<combination.length; i++) {
-                    if (Number(square.dataset.id) === combination[i]) {
-                        square.style.backgroundColor = 'lightGreen'
-                        square.removeEventListener('click', handleSquareClick);
-                    } else {
-                        square.removeEventListener('click', handleSquareClick);
-                    }
-            playerTwoScore.textContent = playerTwoCounter
-                }
-    })
+    if (playerTwoTurns.includes(winningCombination[0]) &&      
+        playerTwoTurns.includes(winningCombination[1]) &&      
+        playerTwoTurns.includes(winningCombination[2])) {
+            winnerDisplay.textContent = 'O IS THE WINNER';
+            playerTwoScoreCounter++;
+            playerTwoScore.textContent = playerTwoScoreCounter;
+            highlightWinner(winningCombination);
     }
 }
 
-var handleNewGameClick = function () {
+var highlightWinner = function (winningCombination) {
+    gameSquare.forEach(function(square) {
+        var squareId = Number(square.dataset.id);
+        for (i=0; i<winningCombination.length; i++) {
+            if (squareId === winningCombination[i]) {
+                square.style.backgroundColor = 'lightGreen';
+                square.removeEventListener('click', handleSquareClick);
+            } else {
+                square.removeEventListener('click', handleSquareClick);
+            }
+        }
+    })
+}
+
+var handleNewGameButtonClick = function () {
     gameSquare.forEach(function(square) {
         square.textContent = ' ';
         square.addEventListener('click', handleSquareClick);
         square.style = '.odd';
     })
     winnerDisplay.textContent = ' ';
-    playerOne = [];    
-    playerTwo = [];
-    clickCounter = 0;
+    playerOneTurns = [];    
+    playerTwoTurns = [];
+    playerTurnCounter = 0;
 }
 
 gameSquare.forEach(function(square) {
-    square.addEventListener('click', handleSquareClick)
+    square.addEventListener('click', handleSquareClick);
 })
-newGameButton.addEventListener('click', handleNewGameClick);
+newGameButton.addEventListener('click', handleNewGameButtonClick);
 
-// Transfer to working docs without all the mess /
-// get working for playone and playertwo /
-// I need it to stop when there is a winner. /
-// I need to change that to images - do at a later date I think
-// Design layout. //
-// Run through all the names and readability.
-// Deploy your game online, where the rest of the world can access it /
 // A link to your hosted working game in the URL section of your GitHub repo ??
 // A ``readme.md`` file with explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.
 // Presentation on Friday 2:45
