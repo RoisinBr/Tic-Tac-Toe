@@ -18,6 +18,3 @@ Keep it as simple as possible.  First establishing how the game works and then d
 2. Allow player to choose character/image.
 
 
-## Learnings
-
-Play the game before you start so you learn all 'winning' options.
