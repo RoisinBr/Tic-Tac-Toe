@@ -1,5 +1,5 @@
 # Tic Tac Toe
-[Play Game](https://roisinbr.github.io/project1/)
+[Play Game](https://roisinbr.github.io/Tic-Tac-Toe/)
 
 
 ## Game Play
